@@ -1,0 +1,35 @@
+CREATE TABLE PAIS(
+    cod_pais NUMBER PRIMARY KEY,
+    nome VARCHAR(30));
+    
+CREATE TABLE ESTADO (
+    cod_estado NUMBER PRIMARY KEY,
+    nome_estado VARCHAR(30),
+    cod_pais NUMBER);
+    
+ALTER TABLE ESTADO ADD CONSTRAINT FK_ESTADO FOREIGN KEY (cod_pais) REFERENCES 
+PAIS_SS(cod_pais);
+
+CREATE TABLE CIDADE(
+    cod_cidade NUMBER PRIMARY KEY,
+    nome_estado VARCHAR(30)
+);
+
+ALTER TABLE CIDADE ADD CONSTRAINT FK_CIDADE FOREIGN KEY (cod_estado) REFERENCES 
+ESTADO(cod_estado);
+
+CREATE TABLE BAIRRO(
+    cod_bairro NUMBER PRIMARY KEY,
+    nome_bairro VARCHAR2(30));
+    
+ALTER TABLE BAIRRO ADD CONSTRAINT FK_BAIRRO FOREIGN KEY (cod_cidade) REFERENCES 
+CIDADE(cod_cidade);
+
+
+
+
+
+
+
+
+    
